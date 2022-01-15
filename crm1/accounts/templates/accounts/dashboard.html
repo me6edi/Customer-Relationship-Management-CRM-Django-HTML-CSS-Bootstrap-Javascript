@@ -11,11 +11,13 @@
                 <a href="" class="btn btn-info btn-sm btn-block">Create Customer</a>
                 <table class="table table-sm">
                     <tr>
+                        <th>Customer info</th>
                         <th>Customer</th>
                         <th>Phone</th>
                     </tr>
                     {% for customer in customers %}
                          <tr>
+                            <td><a href="{% url 'customer' customer.id %}" class="btn btn-sm btn-success">View</a></td>
                             <td>{{customer.name}}</td>
                             <td>{{customer.phone}}</td>
                         </tr>
@@ -31,17 +33,18 @@
                 <a href="" class="btn btn-info btn-sm btn-block">Create Order</a>
                 <table class="table table-sm">
                     <tr>
-                        <th>Product</th>
                         <th>Date Order</th>
+                        <th>Product</th>
+                        <th>Price</th>
                         <th>Status</th>
                         <th>Update</th>
                         <th>Remove</th>
                     </tr>
                     {% for order in orders %}
                     <tr>
-
-                       <td>{{order.product}}</td>
                        <td>{{order.date_created}}</td>
+                       <td>{{order.product}}</td>
+                       <td>{{order.product.price}}$</td>
                        <td>{{order.status}}</td>
                        <td><a href="#" class="btn btn-success">Update</a></td>
                        <td><a href="#" class="btn btn-danger">Delete</a></td>
@@ -51,6 +54,5 @@
             </div>
         </div>
 </div>
-
 
 {% endblock %}
