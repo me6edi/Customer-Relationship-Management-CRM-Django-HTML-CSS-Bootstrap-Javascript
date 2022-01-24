@@ -1,5 +1,4 @@
 {% extends 'accounts/main.html' %}
-
 {% block content %}
 {% include 'accounts/status.html' %}
 <br>
@@ -46,13 +45,12 @@
                        <td>{{order.product}}</td>
                        <td>{{order.product.price}}$</td>
                        <td>{{order.status}}</td>
-                       <td><a href="#" class="btn btn-success">Update</a></td>
-                       <td><a href="#" class="btn btn-danger">Delete</a></td>
+                       <td><a href="{% url 'update_order' order.id %}" class="btn btn-sm btn-success">Update</a></td>
+                       <td><a href="{% url 'delete_order' order.id %}" class="btn btn-sm btn-danger">Delete</a></td>
                     </tr>
                     {% endfor %}
                 </table>
             </div>
         </div>
 </div>
-
 {% endblock %}
